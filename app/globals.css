@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-@property --angle {
-  syntax: "<angle>";
-  inherits: true;
-  initial-value: 0deg;
-}
-
 :root {
   color-scheme: light dark;
 }
@@ -17,86 +11,84 @@ body {
   overflow-x: hidden;
 }
 
-.carousel .proyect .proyect-img {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+/*********************   CARD1 WITH BORDER AND GLOW  **************************/
+.container {
+  --box1-color: #333;
+  --box1-color75: #33333375;
+  --box1-height: 400px;
+  --box1-width: 300px;
+  --box1-glow: #59ff50;
 }
 
-.carousel .proyect.old>.proyect-img {
-  z-index: 2;
-}
-
-.carousel .proyect.actual>.proyect-img {
-  z-index: 3;
-  bottom: 2.5rem;
-  left: 10rem;
-  width: 120px;
-  height: 170px;
-  animation: showImage .5s linear 1 forwards;
-}
-
-@keyframes showImage {
-  to {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
-}
-
-.carousel .card {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  transform: scale(0.5);
-  opacity: 0.5;
-  transform-origin: center;
-  z-index: -10;
-}
-
-.carousel .card.actual {
-  z-index: 3;
-  animation: showCard 0.5s linear 1 forwards;
-}
-
-@keyframes showCard {
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.thumbnail {
+.box1 {
+  margin: 2rem;
+  width: var(--box1-width);
+  height: var(--box1-height);
+  background-color: var(--box1-color);
+  border-radius: 1rem;
   position: relative;
-  z-index: 1;
+  overflow: hidden;
 }
 
-.thumbnail.active::before,
-.thumbnail.active::after {
-  border-radius: 0.75rem;
+.box1::before {
   position: absolute;
   content: "";
-  right: 0%;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: conic-gradient(from var(--angle), rgb(255, 55, 0), orange);
-  animation: autoRotate 2s linear infinite;
-  padding: 2px;
-  box-sizing: unset;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%)
+  top: var(--y);
+  left: var(--x);
+  transform: translate(-50%, -50%);
+  width: calc(1.5 * var(--box1-width));
+  height: calc(1.5 * var(--box1-width));
+  background-image: radial-gradient(var(--box1-glow), transparent, transparent);
+  opacity: 0;
+  transition: 0.5s, top 0s, left 0s;
 }
 
-.thumbnail.active::before {
-  filter: blur(10px)
+.box1:hover::before {
+  opacity: 0.5;
+}
+
+.box1::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background-color: var(--box1-color75);
+  border-radius: inherit;
+}
+
+/*********************   CARD2 WITH BORDER AND GLOW  **************************/
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: true;
+}
+
+.box2 {
+  position: relative;
+  border-radius: 1rem;
+  height: 400px;
+  width: 300px;
+  background: #333;
+
+}
+
+.box2::before,
+.box2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  background: linear-gradient(var(--angle), orange, #4a00ff);
+  animation: autoRotate 4s linear infinite;
+}
+
+.box2::after {
+  filter: blur(20px)
+}
+
+.box2::before {
+  inset: -3px;
 }
 
 @keyframes autoRotate {
@@ -105,6 +97,82 @@ body {
   }
 
   to {
-    --angle: 360deg
+    --angle: 360deg;
   }
+}
+
+
+/***********************************  CLOCK   **********************************/
+span {
+  font-size: 3rem;
+  font-weight: bold;
+  background: #ddd;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #333;
+}
+
+.ring {
+  width: 300px;
+  height: 300px;
+  outline: #333 solid 15px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: relative;
+  background: #ccc;
+  box-shadow: 20px 30px 20px #000;
+}
+
+.ring:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 7px);
+  left: calc(50% - 7px);
+  width: 14px;
+  height: 14px;
+  background: #333;
+  border-radius: 50%;
+}
+
+.seconds {
+  position: absolute;
+  height: 140px;
+  width: 5px;
+  background: gold;
+  transform-origin: bottom;
+  transform: translateY(-70px) rotate(0deg);
+}
+
+.minutes {
+  position: absolute;
+  height: 130px;
+  width: 5px;
+  background: orange;
+  transform-origin: bottom;
+  transform: translateY(-65px) rotate(0deg);
+}
+
+.hours {
+  position: absolute;
+  height: 120px;
+  width: 5px;
+  background: darkred;
+  transform-origin: bottom;
+  transform: translateY(-60px) rotate(0deg);
+}
+
+.banner::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background: #00000050;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  backdrop-filter: blur(90px);
 }
