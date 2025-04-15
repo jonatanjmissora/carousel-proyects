@@ -20,9 +20,12 @@ export default function Card1() {
   }
 
   return (
-    <div ref={card1Ref} onMouseMoveCapture={handleMouseEvent} className="box1 flex justify-center items-center font-bold tracking-widest text-xl text-white">
-      GLOW CARD
-      1
+    <div className="card-container">
+
+      <div ref={card1Ref} onMouseMoveCapture={handleMouseEvent} className="box1 flex justify-center items-center font-bold tracking-widest text-xl text-white">
+        GLOW CARD
+        1
+      </div>
     </div>
   )
 }

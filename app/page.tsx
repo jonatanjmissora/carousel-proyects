@@ -1,13 +1,17 @@
 import Card1 from "./_components/Card1";
 import Card2 from "./_components/Card2";
 import Clock from "./_components/Clock";
+import Cord from "./_components/Cord";
 import Particles from "./_components/Particles";
+import Slider from "./_components/Slider";
 import Speech from "./_components/Speech";
 
 export default function Home() {
 
   return (
-    <article className="container w-screen h-screen flex justify-center items-center flex-wrap gap-8 relative overflow-x-hidden">
+    <article className="w-screen flex justify-center items-center flex-col gap-8 relative">
+
+      <Cord />
 
       <Card1 />
 
@@ -18,6 +22,9 @@ export default function Home() {
       {/* <Clock /> */}
 
       <Particles />
+
+      <Slider />
+
 
     </article>
   );

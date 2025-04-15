@@ -50,7 +50,7 @@ function Particles() {
   }, [])
 
   return (
-    <div ref={bannerRef} className="z-1 banner w-screen h-screen border flex justify-center items-center relative">
+    <div ref={bannerRef} className="z-1 banner w-screen h-screen flex justify-center items-center relative">
       <span className="text-4xl z-2 font-bold text-black">HOLA MANOLA</span>
 
       <canvas id="canvas" ref={canvasRef} className=" -z-1 pointer-events-none absolute inset-0 w-full h-full">

@@ -12,7 +12,7 @@ body {
 }
 
 /*********************   CARD1 WITH BORDER AND GLOW  **************************/
-.container {
+.card-container {
   --box1-color: #333;
   --box1-color75: #33333375;
   --box1-height: 400px;
@@ -165,6 +165,8 @@ span {
   transform: translateY(-60px) rotate(0deg);
 }
 
+
+/*********************************** Particles ************************************/
 .banner::after {
   position: absolute;
   content: "";
@@ -175,4 +177,20 @@ span {
   z-index: 0;
   pointer-events: none;
   backdrop-filter: blur(90px);
+}
+
+
+/*********************************** Slider ************************************/
+.slider {
+  animation: autoRun 10s linear infinite;
+}
+
+.slider:nth-of-type(1) {
+  animation-delay: -5s;
+}
+
+@keyframes autoRun {
+  to {
+    transform: translatex(-200%);
+  }
 }
