@@ -26,7 +26,7 @@ function Particles() {
 
       const arrayColor = ["red", "pink", "blue", "purple", "orange", "green", "yellow"]
       const dots: DotsProps[] = []
-      for (let index = 0; index < 10; index++) {
+      for (let index = 0; index < 20; index++) {
         dots.push({
           x: Math.floor(Math.random() * canvas.width),
           y: Math.floor(Math.random() * canvas.height),
@@ -41,6 +41,10 @@ function Particles() {
             ctx.fillStyle = dot.color
             ctx.beginPath()
             ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2)
+            ctx.shadowBlur = 50
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            ctx.shadowColor = dot.color;
             ctx.fill()
           })
         }

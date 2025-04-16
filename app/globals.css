@@ -182,11 +182,11 @@ span {
 
 /*********************************** Slider ************************************/
 .slider {
-  animation: autoRun 10s linear infinite;
+  animation: autoRun 100s linear infinite;
 }
 
 .slider:nth-of-type(1) {
-  animation-delay: -5s;
+  animation-delay: -50s;
 }
 
 @keyframes autoRun {
