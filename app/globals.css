@@ -194,3 +194,36 @@ span {
     transform: translatex(-200%);
   }
 }
+
+/*********************************** Slider ************************************/
+.card-reveal-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 200px);
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20% 0;
+  grid-gap: 100px 50px;
+}
+
+.card-reveal {
+  width: 100%;
+  height: 200px;
+  border-radius: 1rem;
+  background: rgb(75, 24, 9);
+  border: 1px solid;
+  animation: scrollReveal linear;
+  animation-timeline: view();
+  animation-range: 0 40%;
+}
+
+@keyframes scrollReveal {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}

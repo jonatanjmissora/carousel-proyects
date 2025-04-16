@@ -1,6 +1,21 @@
 
 export default function CardReveal() {
   return (
-    <div className="w-screen h-[200dvh] border"></div>
+    <div className="w-screen card-reveal-container">
+
+      <div className="card-reveal"></div>
+      <div className="card-reveal"></div>
+      <div className="card-reveal"></div>
+      <div className="card-reveal"></div>
+      <div className="card-reveal"></div>
+      <div className="card-reveal"></div>
+      <div className="card-reveal"></div>
+      <div className="card-reveal"></div>
+      <div className="card-reveal"></div>
+      <div className="card-reveal"></div>
+      <div className="card-reveal"></div>
+      <div className="card-reveal"></div>
+
+    </div>
   )
 }
