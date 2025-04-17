@@ -65,8 +65,8 @@ function Particles2() {
         const dot: DotProps = {
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          dx: rand(0.05, -0.05),
-          dy: rand(0.05, -0.05),
+          dx: rand(0.1, -0.1),
+          dy: rand(0.1, -0.1),
           color: Math.random() * 360,
           size: 4
         }

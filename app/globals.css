@@ -222,8 +222,33 @@ span {
     opacity: 0;
     scale: 0.5;
   }
+
   to {
     opacity: 1;
     scale: 1;
   }
+}
+
+/*********************************** ImgBx ************************************/
+
+.img-container .imgBx {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.img-container .imgBx:hover {
+  z-index: 1000;
+}
+
+.img-container .imgBx i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("/myphoto.png");
+  background-size: 300px;
+  background-position: center;
 }
